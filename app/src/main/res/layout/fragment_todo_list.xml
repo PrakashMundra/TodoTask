@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.todotask.viewmodel.TodoListViewModel" />
+    </data>
+
+    <FrameLayout style="@style/Match">
+
+        <TextView
+            android:id="@+id/loading_tv"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:text="@string/loading_todo_list"
+            android:textAlignment="center"
+            android:visibility="@{viewmodel.loading?View.VISIBLE:View.GONE}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/todo_list"
+            style="@style/Match"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:visibility="@{viewmodel.isEmpty?View.GONE:View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/no_data_tv"
+            style="@style/Wrap"
+            android:layout_gravity="center"
+            android:text="@string/add_todo"
+            android:textAlignment="center"
+            android:visibility="@{viewmodel.isEmpty?View.VISIBLE:View.GONE}" />
+    </FrameLayout>
+</layout>

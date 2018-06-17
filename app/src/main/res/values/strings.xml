@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TodoTask</string>
+    <string name="todo_list">Todo List</string>
+    <string name="loading_todo_list">Loading Todo list&#8230;</string>
+    <string name="todo_marked_complete">Task marked as complete</string>
+    <string name="todo_marked_active">Task marked as active</string>
+    <string name="add_todo">Add Todo</string>
+    <string name="title_hint">Enter title</string>
+    <string name="description_hint">Enter Todo description.</string>
+    <string name="empty_task_message">Todo cannot be empty</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+</resources>

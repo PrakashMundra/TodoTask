@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View.OnClickListener" />
+
+        <variable
+            name="todo"
+            type="com.todotask.data.model.Todo" />
+
+        <variable
+            name="callback"
+            type="com.todotask.ui.callback.ITodoItemListener" />
+    </data>
+
+    <RelativeLayout style="@style/MatchWidth">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> callback.onTodoClicked(todo)}"
+            android:orientation="horizontal"
+            android:padding="@dimen/list_item_padding">
+
+            <CheckBox
+                android:id="@+id/complete"
+                style="@style/Wrap"
+                android:checked="@{todo.completed}"
+                android:onClick="@{(view) -> callback.onTodoCompleteChanged(todo, view)}" />
+
+            <Space
+                android:layout_width="@dimen/list_item_padding"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/WeightWidth"
+                android:text="@{todo.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <Space
+                android:layout_width="@dimen/list_item_padding"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/menu"
+                style="@style/Wrap"
+                android:padding="@dimen/list_item_padding"
+                android:tag="@{todo}"
+                app:srcCompat="@drawable/ic_menu" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
